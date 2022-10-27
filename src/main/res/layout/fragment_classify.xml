@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.classify.ClassifyFragment">
+
+    <TextView
+        android:id="@+id/text_classify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <Button
+        android:id="@+id/btnPredict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="predictOpenFileDialog"
+        android:text="@string/predictBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_classify"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <Spinner
+        android:id="@+id/spinModelP"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:entries="@array/models"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_classify"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/txtColTextCls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/columnTxtCls"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_classify"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <RadioGroup
+        android:id="@+id/rgColumn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtColTextCls"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtColTextCls"
+        app:layout_constraintTop_toBottomOf="@+id/txtColTextCls"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/rbDefaultCls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/defaultrdBtnCls"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtColumn"
+            app:layout_constraintTop_toBottomOf="@+id/txtColumn"
+            tools:text="@string/defaultrdBtnCls" />
+
+        <RadioButton
+            android:id="@+id/rbCustomCls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customrdBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/rbDefault"
+            app:layout_constraintTop_toBottomOf="@+id/rbDefault"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/customrdBtn" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtTextCol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/columnTextTxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rgColumn"
+        app:layout_constraintTop_toBottomOf="@+id/rgColumn"
+        app:layout_constraintVertical_bias="0.032" />
+
+
+    <EditText
+        android:id="@+id/edtTxtTextCls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/hintCatTxt"
+        android:inputType="textPersonName"
+        android:maxLength="2"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTextCol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/txtTextCol"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <TextView
+        android:id="@+id/txtSheetCls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sheetTxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtColTextCls"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtTextCls"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/rgSheetCls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSheetCls"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtSheetCls"
+        app:layout_constraintTop_toBottomOf="@+id/txtSheetCls"
+        app:layout_constraintVertical_bias="0.0">
+        <RadioButton
+            android:id="@+id/rbDefaultSheetCls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/defaultrdBtnS"
+            android:checked="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtSheetCls"
+            app:layout_constraintTop_toBottomOf="@+id/txtSheetCls"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RadioButton
+            android:id="@+id/rbCustomSheetCls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customrdBtnS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/rbDefaultSheetCls"
+            app:layout_constraintTop_toBottomOf="@+id/rbDefaultSheetCls"
+            app:layout_constraintVertical_bias="0.0" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edtSheetCls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/hintCatTxtS"
+        android:inputType="textPersonName"
+        android:maxLength="31"
+        app:layout_constraintBottom_toBottomOf="@+id/rgSheetCls"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtTextCls"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rgSheetCls"
+        app:layout_constraintTop_toBottomOf="@+id/txtSheetCls"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
